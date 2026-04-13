@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Shengming Zhou",
+  description = "Personal homepage for Shengming Zhou.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="mb-8 flex items-center justify-between gap-4">
+        <a class="text-sm font-semibold tracking-[0.2em] text-ink" href="/">SHENGMING ZHOU</a>
+        <nav class="flex items-center gap-4 text-sm text-ink/70">
+          <a href="#about" class="hover:text-ink">About</a>
+          <a href="#projects" class="hover:text-ink">Projects</a>
+          <a href="#writing" class="hover:text-ink">Notes</a>
+          <a href="#contact" class="hover:text-ink">Contact</a>
+        </nav>
+      </header>
+      <main class="space-y-20">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

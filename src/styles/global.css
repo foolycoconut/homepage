@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sand text-ink font-sans antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(247, 200, 115, 0.38), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(64, 99, 77, 0.15), transparent 24rem),
+    linear-gradient(180deg, #fbf8f2 0%, #f4efe7 100%);
+}
+
+.page-shell {
+  @apply mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-16 pt-8 md:px-10;
+}
+
+.surface {
+  @apply rounded-[2rem] border border-black/5 bg-white/75 shadow-card backdrop-blur;
+}
+
+.eyebrow {
+  @apply font-mono text-xs uppercase tracking-[0.28em] text-moss;
+}
+
+.section-grid {
+  @apply grid gap-6 md:grid-cols-[minmax(0,220px)_1fr];
+}
+
+.section-copy {
+  @apply text-sm leading-7;
+  color: rgb(17 24 39 / 72%);
+}
+
+a {
+  @apply transition-colors duration-200;
+}
