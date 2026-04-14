@@ -21,26 +21,76 @@ const writing = (await getCollection("writing")).sort((a, b) =>
   <section id="about" class="section-grid">
     <SectionHeading
       label="About"
-      title="Keep the intro direct."
-      intro="A homepage works better when it explains your current direction, not your full history."
+      title="A concise academic profile."
+      intro="This page follows the structure of my CV, with the most important context surfaced first."
     />
     <div class="surface space-y-5 p-6 md:p-8">
       <p class="text-lg leading-8 text-ink/78">
-        I am Shengming Zhou, a student of UofM. This site is a small home for my
-        background, projects, and notes as I keep learning and building.
+        I am Shengming Zhou, a computer science student at the University of Minnesota.
+        Before transferring to UMN, I studied Mathematics and Applied Mathematics at
+        Shandong University.
       </p>
       <p class="section-copy">
-        The structure is intentionally simple: a clear introduction, selected work,
-        and a place to publish ideas or progress over time.
+        My academic work centers on databases, mathematics, and research workflows. I
+        enjoy building implementations that make abstract ideas measurable, testable,
+        and useful in practice.
       </p>
+    </div>
+  </section>
+
+  <section id="background" class="section-grid">
+    <SectionHeading
+      label="Background"
+      title="Education and research experience."
+      intro="These are the academic and research contexts that best explain what I am working on now."
+    />
+    <div class="grid gap-5">
+      <article class="surface p-6 md:p-8">
+        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">University of Minnesota</h3>
+            <p class="mt-1 text-sm text-ink/70">Bachelor of Arts in Computer Science</p>
+          </div>
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2025 - Present</p>
+        </div>
+        <p class="mt-4 text-sm text-ink/75">GPA: 4.0/4.0</p>
+        <p class="mt-2 section-copy">Relevant coursework: Matrix Theory, Database System, Graphics.</p>
+      </article>
+
+      <article class="surface p-6 md:p-8">
+        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Shandong University</h3>
+            <p class="mt-1 text-sm text-ink/70">Bachelor of Science in Mathematics and Applied Mathematics</p>
+          </div>
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2023 - 2025</p>
+        </div>
+        <p class="mt-4 text-sm text-ink/75">GPA: 82.1/100</p>
+        <p class="mt-2 section-copy">Relevant coursework: Real and Complex Analysis, Probability Theory, ODE.</p>
+      </article>
+
+      <article class="surface p-6 md:p-8">
+        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h3 class="text-xl font-semibold">Research Assistant</h3>
+            <p class="mt-1 text-sm text-ink/70">Long-horizon LLM Memory and Personalization Benchmark Project</p>
+          </div>
+          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2026</p>
+        </div>
+        <ul class="mt-4 space-y-2 text-sm leading-7 text-ink/78">
+          <li>Built automated data processing and evaluation workflows in Python for large-scale benchmarking tasks.</li>
+          <li>Managed experiment environments on Linux servers, including dependency setup, debugging, and performance troubleshooting.</li>
+          <li>Developed validation scripts and quality checks to improve dataset consistency and output reliability.</li>
+        </ul>
+      </article>
     </div>
   </section>
 
   <section id="projects" class="section-grid">
     <SectionHeading
       label="Selected Work"
-      title="Show a few things with enough context."
-      intro="Three strong projects with clear summaries are usually better than ten undifferentiated cards."
+      title="Projects that reflect my current direction."
+      intro="These two projects best represent the mix of theory, implementation, and evaluation I want to keep developing."
     />
     <ProjectGrid items={projects} />
   </section>
@@ -48,8 +98,8 @@ const writing = (await getCollection("writing")).sort((a, b) =>
   <section id="writing" class="section-grid">
     <SectionHeading
       label="Notes"
-      title="Reserve space for writing from day one."
-      intro="Even if you only publish occasionally, the site should already have a place for thinking in public."
+      title="A small place for ongoing interests."
+      intro="I do not need a full blog yet, but I do want a place to record what I am currently exploring."
     />
     <WritingList items={writing} />
   </section>
@@ -65,13 +115,13 @@ const writing = (await getCollection("writing")).sort((a, b) =>
         <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">GitHub</p>
         <p class="mt-3 text-lg font-semibold">github.com/foolycoconut</p>
       </a>
-      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="mailto:you@example.com">
+      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="mailto:zhou2412@umn.edu">
         <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">Email</p>
-        <p class="mt-3 text-lg font-semibold">you@example.com</p>
+        <p class="mt-3 text-lg font-semibold">zhou2412@umn.edu</p>
       </a>
-      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="https://x.com/your-name">
-        <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">Social</p>
-        <p class="mt-3 text-lg font-semibold">@your-name</p>
+      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="/Shengming-Zhou-CV.pdf">
+        <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">CV</p>
+        <p class="mt-3 text-lg font-semibold">Download PDF resume</p>
       </a>
     </div>
   </section>
