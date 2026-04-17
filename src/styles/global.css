@@ -13,19 +13,16 @@ html {
 }
 
 body {
-  @apply bg-sand text-ink font-sans antialiased;
-  background-image:
-    radial-gradient(circle at top left, rgba(247, 200, 115, 0.38), transparent 28rem),
-    radial-gradient(circle at bottom right, rgba(64, 99, 77, 0.15), transparent 24rem),
-    linear-gradient(180deg, #fbf8f2 0%, #f4efe7 100%);
+  @apply bg-[#f8f6f1] text-ink font-sans antialiased;
 }
 
 .page-shell {
-  @apply mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-16 pt-8 md:px-10;
+  @apply mx-auto flex min-h-screen max-w-5xl flex-col px-6 pb-20 pt-8 md:px-10;
 }
 
 .surface {
-  @apply rounded-[2rem] border border-black/5 bg-white/75 shadow-card backdrop-blur;
+  @apply rounded-[1.5rem] border bg-white;
+  border-color: rgb(0 0 0 / 6%);
 }
 
 .eyebrow {
@@ -43,4 +40,62 @@ body {
 
 a {
   @apply transition-colors duration-200;
+}
+
+.site-header {
+  @apply mb-16 flex flex-col gap-5 border-b pb-5 md:mb-20 md:flex-row md:items-center md:justify-between;
+  border-color: rgb(0 0 0 / 8%);
+}
+
+.site-nav {
+  @apply flex flex-wrap items-center gap-3 text-sm;
+  color: rgb(17 24 39 / 65%);
+}
+
+.site-nav a {
+  @apply rounded-full px-3 py-1.5 hover:bg-black/[0.04] hover:text-ink;
+}
+
+.site-nav a[data-active="true"] {
+  @apply bg-black/[0.06] text-ink;
+}
+
+.page-intro {
+  @apply max-w-3xl space-y-6;
+}
+
+.page-title {
+  @apply text-4xl font-semibold tracking-tight md:text-6xl;
+}
+
+.page-body {
+  @apply max-w-3xl text-base leading-8 md:text-lg;
+  color: rgb(17 24 39 / 74%);
+}
+
+.simple-grid {
+  @apply grid gap-5 md:grid-cols-2;
+}
+
+.card {
+  @apply rounded-[1.25rem] border bg-white p-6;
+  border-color: rgb(0 0 0 / 8%);
+}
+
+.card-title {
+  @apply text-lg font-semibold tracking-tight;
+}
+
+.prose-list {
+  @apply space-y-2 text-sm leading-7;
+  color: rgb(17 24 39 / 74%);
+}
+
+.muted-link {
+  @apply text-moss hover:text-ink;
+}
+
+.footer-note {
+  @apply mt-auto pt-16 text-sm;
+  color: rgb(17 24 39 / 45%);
 }

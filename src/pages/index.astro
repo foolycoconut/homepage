@@ -1,128 +1,42 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import ProjectGrid from "../components/ProjectGrid.astro";
-import SectionHeading from "../components/SectionHeading.astro";
-import WritingList from "../components/WritingList.astro";
-
-const projects = (await getCollection("projects"))
-  .filter((entry) => entry.data.featured)
-  .sort((a, b) => b.data.year.localeCompare(a.data.year));
-
-const writing = (await getCollection("writing")).sort((a, b) =>
-  b.data.date.localeCompare(a.data.date),
-);
 ---
 
 <BaseLayout title="Shengming Zhou" description="Personal homepage for Shengming Zhou.">
-  <Hero />
-
-  <section id="about" class="section-grid">
-    <SectionHeading
-      label="About"
-      title="A concise academic profile."
-      intro="This page follows the structure of my CV, with the most important context surfaced first."
-    />
-    <div class="surface space-y-5 p-6 md:p-8">
-      <p class="text-lg leading-8 text-ink/78">
-        I am Shengming Zhou, a computer science student at the University of Minnesota.
-        Before transferring to UMN, I studied Mathematics and Applied Mathematics at
-        Shandong University.
+  <section class="page-intro">
+    <p class="eyebrow">Computer Science Student</p>
+    <h1 class="page-title">Shengming Zhou</h1>
+    <div class="page-body space-y-6">
+      <p>
+        I am a computer science student at the University of Minnesota. My background
+        also includes undergraduate study in mathematics, and I am broadly interested
+        in databases, mathematical methods, and research-oriented systems work.
       </p>
-      <p class="section-copy">
-        My academic work centers on databases, mathematics, and research workflows. I
-        enjoy building implementations that make abstract ideas measurable, testable,
-        and useful in practice.
+      <p>
+        This site is intentionally simple. The homepage is just an introduction, while
+        the rest of the material lives in separate pages for blog posts, contact
+        details, and a downloadable CV.
       </p>
     </div>
   </section>
 
-  <section id="background" class="section-grid">
-    <SectionHeading
-      label="Background"
-      title="Education and research experience."
-      intro="These are the academic and research contexts that best explain what I am working on now."
-    />
-    <div class="grid gap-5">
-      <article class="surface p-6 md:p-8">
-        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h3 class="text-xl font-semibold">University of Minnesota</h3>
-            <p class="mt-1 text-sm text-ink/70">Bachelor of Arts in Computer Science</p>
-          </div>
-          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2025 - Present</p>
-        </div>
-        <p class="mt-4 text-sm text-ink/75">GPA: 4.0/4.0</p>
-        <p class="mt-2 section-copy">Relevant coursework: Matrix Theory, Database System, Graphics.</p>
-      </article>
-
-      <article class="surface p-6 md:p-8">
-        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h3 class="text-xl font-semibold">Shandong University</h3>
-            <p class="mt-1 text-sm text-ink/70">Bachelor of Science in Mathematics and Applied Mathematics</p>
-          </div>
-          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2023 - 2025</p>
-        </div>
-        <p class="mt-4 text-sm text-ink/75">GPA: 82.1/100</p>
-        <p class="mt-2 section-copy">Relevant coursework: Real and Complex Analysis, Probability Theory, ODE.</p>
-      </article>
-
-      <article class="surface p-6 md:p-8">
-        <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h3 class="text-xl font-semibold">Research Assistant</h3>
-            <p class="mt-1 text-sm text-ink/70">Long-horizon LLM Memory and Personalization Benchmark Project</p>
-          </div>
-          <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">2026</p>
-        </div>
-        <ul class="mt-4 space-y-2 text-sm leading-7 text-ink/78">
-          <li>Built automated data processing and evaluation workflows in Python for large-scale benchmarking tasks.</li>
-          <li>Managed experiment environments on Linux servers, including dependency setup, debugging, and performance troubleshooting.</li>
-          <li>Developed validation scripts and quality checks to improve dataset consistency and output reliability.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="projects" class="section-grid">
-    <SectionHeading
-      label="Selected Work"
-      title="Projects that reflect my current direction."
-      intro="These two projects best represent the mix of theory, implementation, and evaluation I want to keep developing."
-    />
-    <ProjectGrid items={projects} />
-  </section>
-
-  <section id="writing" class="section-grid">
-    <SectionHeading
-      label="Notes"
-      title="A small place for ongoing interests."
-      intro="I do not need a full blog yet, but I do want a place to record what I am currently exploring."
-    />
-    <WritingList items={writing} />
-  </section>
-
-  <section id="contact" class="section-grid">
-    <SectionHeading
-      label="Contact"
-      title="Link the profiles you actually use."
-      intro="Keep this simple so someone can reach you or inspect your work with one click."
-    />
-    <div class="surface grid gap-5 p-6 md:grid-cols-3 md:p-8">
-      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="https://github.com/foolycoconut">
-        <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">GitHub</p>
-        <p class="mt-3 text-lg font-semibold">github.com/foolycoconut</p>
-      </a>
-      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="mailto:zhou2412@umn.edu">
-        <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">Email</p>
-        <p class="mt-3 text-lg font-semibold">zhou2412@umn.edu</p>
-      </a>
-      <a class="rounded-3xl border border-ink/10 p-5 hover:border-moss hover:bg-moss/5" href="/Shengming-Zhou-CV.pdf">
-        <p class="font-mono text-xs uppercase tracking-[0.24em] text-moss">CV</p>
-        <p class="mt-3 text-lg font-semibold">Download PDF resume</p>
-      </a>
-    </div>
+  <section class="simple-grid">
+    <article class="card">
+      <p class="eyebrow">Now</p>
+      <h2 class="card-title mt-4">Current focus</h2>
+      <p class="mt-4 text-sm leading-7 text-ink/74">
+        I am currently studying computer science at UMN and building a foundation in
+        systems, mathematics, and machine learning evaluation workflows.
+      </p>
+    </article>
+    <article class="card">
+      <p class="eyebrow">Navigate</p>
+      <h2 class="card-title mt-4">What is here</h2>
+      <ul class="mt-4 prose-list">
+        <li><a class="muted-link" href="/cv">CV</a> for a concise academic and project summary.</li>
+        <li><a class="muted-link" href="/contact">Contact</a> for email and external links.</li>
+        <li><a class="muted-link" href="/blog">Blog</a> for short notes and future writing.</li>
+      </ul>
+    </article>
   </section>
 </BaseLayout>

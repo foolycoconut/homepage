@@ -10,6 +10,14 @@ const {
   title = "Shengming Zhou",
   description = "Personal homepage for Shengming Zhou.",
 } = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+  { href: "/cv", label: "CV" },
+];
 ---
 
 <!doctype html>
@@ -22,18 +30,24 @@ const {
   </head>
   <body>
     <div class="page-shell">
-      <header class="mb-8 flex items-center justify-between gap-4">
+      <header class="site-header">
         <a class="text-sm font-semibold tracking-[0.2em] text-ink" href="/">SHENGMING ZHOU</a>
-        <nav class="flex items-center gap-4 text-sm text-ink/70">
-          <a href="#about" class="hover:text-ink">About</a>
-          <a href="#projects" class="hover:text-ink">Projects</a>
-          <a href="#writing" class="hover:text-ink">Notes</a>
-          <a href="#contact" class="hover:text-ink">Contact</a>
+        <nav class="site-nav" aria-label="Primary">
+          {
+            navItems.map((item) => (
+              <a href={item.href} data-active={pathname === item.href}>
+                {item.label}
+              </a>
+            ))
+          }
         </nav>
       </header>
       <main class="space-y-20">
         <slot />
       </main>
+      <footer class="footer-note">
+        <p>Built with Astro and deployed on GitHub Pages.</p>
+      </footer>
     </div>
   </body>
 </html>
