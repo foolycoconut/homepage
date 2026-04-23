@@ -12,12 +12,16 @@ const {
 } = Astro.props;
 
 const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const showPublications = false;
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-  { href: "/cv", label: "CV" },
 ];
+
+if (showPublications) {
+  navItems.splice(1, 0, { href: "/publications", label: "Publications" });
+}
 ---
 
 <!doctype html>

@@ -110,3 +110,67 @@ a {
   @apply max-w-3xl border-t pt-8;
   border-color: rgb(17 24 39 / 10%);
 }
+
+.hero-grid {
+  @apply grid gap-10 md:grid-cols-[minmax(0,1.7fr)_240px] md:items-start;
+}
+
+.hero-photo {
+  @apply flex aspect-[4/5] items-center justify-center border text-center;
+  border-color: rgb(17 24 39 / 10%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 85%), rgb(245 243 238 / 95%));
+}
+
+.hero-photo p {
+  @apply px-6 font-mono text-[11px] uppercase tracking-[0.28em];
+  color: rgb(17 24 39 / 38%);
+}
+
+.section-stack {
+  @apply space-y-12;
+}
+
+.section-heading {
+  @apply text-2xl font-semibold tracking-tight;
+}
+
+.section-rule {
+  @apply border-t pt-7;
+  border-color: rgb(17 24 39 / 10%);
+}
+
+.entry-list {
+  @apply space-y-6;
+}
+
+.entry-title-row {
+  @apply flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between;
+}
+
+.entry-title {
+  @apply text-xl font-semibold tracking-tight;
+}
+
+.entry-meta {
+  @apply font-mono text-[11px] uppercase tracking-[0.24em];
+  color: rgb(69 88 77 / 84%);
+}
+
+.entry-subtitle {
+  @apply mt-1 text-[16px];
+  color: rgb(17 24 39 / 62%);
+}
+
+.entry-copy {
+  @apply mt-3 text-[17px] leading-8;
+  color: rgb(17 24 39 / 76%);
+}
+
+.contact-list {
+  @apply space-y-3 text-[17px] leading-8;
+}
+
+.contact-label {
+  @apply inline-block min-w-[110px] font-mono text-[11px] uppercase tracking-[0.24em];
+  color: rgb(69 88 77 / 84%);
+}
