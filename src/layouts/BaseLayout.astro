@@ -31,20 +31,33 @@ if (showPublications) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <script is:inline>
+      (() => {
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = storedTheme ?? (prefersDark ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div class="page-shell">
       <header class="site-header">
-        <a class="text-sm font-semibold tracking-[0.2em] text-ink" href="/">SHENGMING ZHOU</a>
-        <nav class="site-nav" aria-label="Primary">
-          {
-            navItems.map((item) => (
-              <a href={item.href} data-active={pathname === item.href}>
-                {item.label}
-              </a>
-            ))
-          }
-        </nav>
+        <a class="site-brand" href="/">SHENGMING ZHOU</a>
+        <div class="site-controls">
+          <nav class="site-nav" aria-label="Primary">
+            {
+              navItems.map((item) => (
+                <a href={item.href} data-active={pathname === item.href}>
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            Theme
+          </button>
+        </div>
       </header>
       <main class="space-y-20">
         <slot />
@@ -53,5 +66,28 @@ if (showPublications) {
         <p>Shengming Zhou</p>
       </footer>
     </div>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector(".theme-toggle");
+
+        if (!button) return;
+
+        const syncLabel = () => {
+          const isDark = root.dataset.theme === "dark";
+          button.textContent = isDark ? "Light" : "Dark";
+          button.setAttribute("aria-pressed", String(isDark));
+        };
+
+        button.addEventListener("click", () => {
+          const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+          root.dataset.theme = nextTheme;
+          localStorage.setItem("theme", nextTheme);
+          syncLabel();
+        });
+
+        syncLabel();
+      })();
+    </script>
   </body>
 </html>
